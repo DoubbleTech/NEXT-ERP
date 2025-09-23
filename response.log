@@ -1,0 +1,160 @@
+2025-09-21 19:08:08
+Array
+(
+    [success] => 
+    [message] => 
+    [errors] => Array
+        (
+            [signup_email] => Email already registered
+        )
+
+)
+
+
+2025-09-21 19:08:11
+Array
+(
+    [success] => 
+    [message] => 
+    [errors] => Array
+        (
+            [signup_email] => Email already registered
+        )
+
+)
+
+
+2025-09-21 19:08:12
+Array
+(
+    [success] => 
+    [message] => 
+    [errors] => Array
+        (
+            [signup_email] => Email already registered
+        )
+
+)
+
+
+2025-09-21 19:08:50
+Array
+(
+    [success] => 
+    [message] => 
+    [errors] => Array
+        (
+            [signup_email] => Email already registered
+        )
+
+)
+
+
+2025-09-21 19:51:37
+Array
+(
+    [success] => 1
+    [message] => Registration successful!
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 06:58:26
+Array
+(
+    [success] => 1
+    [message] => Registration successful!
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 08:10:38
+Array
+(
+    [success] => 1
+    [message] => Registration successful!
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 09:56:54
+Array
+(
+    [success] => 
+    [message] => Error: Database connection failed
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 09:58:44
+Array
+(
+    [success] => 
+    [message] => Error: Database connection failed
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 09:58:52
+Array
+(
+    [success] => 
+    [message] => Error: Database connection failed
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 10:05:34
+Array
+(
+    [success] => 
+    [message] => Error: Database connection failed
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 10:20:19
+Array
+(
+    [success] => 1
+    [message] => Registration successful!
+    [errors] => Array
+        (
+        )
+
+)
+
+
+2025-09-22 10:49:44
+Array
+(
+    [success] => 1
+    [message] => Registration successful!
+    [errors] => Array
+        (
+        )
+
+)
+
+

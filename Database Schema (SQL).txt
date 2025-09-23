@@ -1,0 +1,53 @@
+-- Create the database if it doesn't exist
+-- CREATE DATABASE IF NOT EXISTS company_db;
+-- USE company_db;
+
+-- Initial table structure
+CREATE TABLE IF NOT EXISTS `employees` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `employee_number` VARCHAR(50) UNIQUE NULL DEFAULT NULL, -- Added Employee Number
+  `full_name` VARCHAR(255) NOT NULL,
+  `father_name` VARCHAR(255) NULL DEFAULT NULL, -- Added Father's Name
+  `cnic` VARCHAR(30) UNIQUE NULL DEFAULT NULL, -- Added CNIC, ensure uniqueness if required
+  `address` TEXT NULL DEFAULT NULL, -- Added Address
+  `dob` DATE NULL DEFAULT NULL, -- Added Date of Birth
+  `marital_status` VARCHAR(50) NULL DEFAULT NULL, -- Added Marital Status
+  `education` TEXT NULL DEFAULT NULL, -- Added Education
+  `position` VARCHAR(255),
+  `designation` VARCHAR(255),
+  `designation_level` VARCHAR(50),
+  `department` VARCHAR(100) NULL DEFAULT NULL, -- Added Department
+  `joining_date` DATE,
+  `manager_id` INT NULL, -- Stores the ID of the immediate line manager (links to another employee)
+  `country_residence` VARCHAR(100),
+  `nationality` VARCHAR(100),
+  `mobile_number` VARCHAR(50),
+  `personal_email` VARCHAR(255) UNIQUE,
+  `office_email` VARCHAR(255) UNIQUE,
+  `office_phone` VARCHAR(50),
+  `office_phone_ext` VARCHAR(10),
+  `benefits` TEXT, -- Can store details about benefits
+  `job_roles` TEXT, -- Can store detailed job responsibilities
+  `image_path` VARCHAR(255) NULL, -- Path to the uploaded employee image
+  `status` ENUM('candidate', 'onboarding', 'active', 'inactive', 'screening_failed', 'interview_failed') NOT NULL DEFAULT 'candidate', -- Added Status Enum & failure states
+  -- Onboarding  Candidate related fields
+  `interview_level_completed` VARCHAR(100) NULL DEFAULT 'Initial Screening', -- Default stage for new candidates
+  `test_details` TEXT NULL, -- Store info about tests taken, scores etc.
+  `onboarding_status` VARCHAR(100) NULL DEFAULT NULL, -- More specific onboarding task status maybe
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`manager_id`) REFERENCES `employees`(`id`) ON DELETE SET NULL -- Optional ensures manager_id refers to a valid employee
+);
+
+-- Add indexes for faster lookups
+CREATE INDEX idx_full_name ON employees(full_name);
+CREATE INDEX idx_office_email ON employees(office_email);
+CREATE INDEX idx_department ON employees(department);
+CREATE INDEX idx_status ON employees(status);
+CREATE INDEX idx_interview_level ON employees(interview_level_completed);
+CREATE INDEX idx_employee_number ON employees(employee_number);
+CREATE INDEX idx_cnic ON employees(cnic);
+
+-- Note Consider adding separate tables for complex features like
+-- onboarding_tasks, documents, performance_reviews, leave_requests, interview_feedback etc.
+-- rather than adding too many columns to the employees table.
