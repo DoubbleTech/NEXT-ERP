@@ -34,7 +34,9 @@ if (empty($_SESSION['csrf_token'])) {
 // Define paths for file uploads, outside the web root if possible for security
 // Adjust these paths based on your actual server directory structure.
 // This example assumes 'uploads' is a sibling directory to 'finlaberp'.
-define('UPLOAD_BASE_DIR', __DIR__ . '/../uploads/');
+
+
+define('UPLOAD_BASE_DIR', __DIR__ . '/uploads/');
 define('AVATAR_UPLOAD_DIR', UPLOAD_BASE_DIR . 'avatars/');
 define('DOCUMENT_UPLOAD_DIR', UPLOAD_BASE_DIR . 'documents/');
 
