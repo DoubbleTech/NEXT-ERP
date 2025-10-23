@@ -1,17 +1,8 @@
 import Form from '@/components/Home/Form'
 import Logo from '@/components/Home/logo'
-import { createConnection } from '@/lib/Database/Database'
 import React from 'react'
 
 const Page = () => {
- const fetchData = async ()=>{
-  await createConnection();
-
-
- }
- fetchData()
-    
-    
   
   return (
     <section className='border-2   h-full my-10 max-w-6xl mx-auto shadow-[0_0_25px_rgba(0,0,0,0.2)] rounded-xl'>

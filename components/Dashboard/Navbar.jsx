@@ -26,8 +26,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import UserSettings from "../Home/Navbar/Settings";
+import { logoutUser } from "@/actions/create-user";
 
-const Navbar = () => {
+const Navbar = ({name,email}) => {
   return (
     <div className=" p-3  flex justify-between items-center px-5 bg-[#87CEEB] shadow-lg">
       <div className=" invert">
@@ -79,9 +80,9 @@ const Navbar = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className={"mr-5 mt-5 w-56"}>
               <DropdownMenuLabel className={"bg-gray-100 "}>
-                <h1 className="font-bold text-[16px]">Super Admin</h1>
+                <h1 className="font-bold text-[16px] capitalize">{name}</h1>
                 <span className="text-muted-foreground mt-2">
-                  Super@admin.com
+                  {email}
                 </span>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -119,7 +120,8 @@ const Navbar = () => {
                   <UserSettings />
                 </DialogContent>
               </Dialog>
-              <Link href={"/"}>
+              <Link onClick={logoutUser} href={'/'}>
+              
                 <DropdownMenuItem
                   className={"flex items-center cursor-pointer"}
                 >

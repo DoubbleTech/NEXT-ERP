@@ -2,6 +2,7 @@ import {Inter } from "next/font/google";
 import "./globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { Toaster } from "@/components/ui/sonner";
 config.autoAddCss = false;
 
 
@@ -17,9 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
+      suppressHydrationWarning
         className={`${inter.className} antialiased`}
       >
-        {children}
+
+       <main> {children}</main>
+      <Toaster position='top-right'/>
       </body>
     </html>
   );

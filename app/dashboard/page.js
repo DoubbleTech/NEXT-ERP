@@ -1,4 +1,3 @@
-
 // import {
 //   faAddressBook,
 //   faBuilding,
@@ -11,6 +10,7 @@
 //   faFolder,
 //   faTruck,
 // } from "@fortawesome/free-regular-svg-icons";
+import { getUser } from "@/actions/get-user";
 import {
   // faBook,
   // faBoxes,
@@ -33,156 +33,158 @@ import Link from "next/link";
 import React from "react";
 
 export const applications = [
-    // {
-    //   icon: faUsers,
-    //   class: "#3b82f6",
-    //   name: "Employees",
-    // },
-    // {
-    //   icon: faMoneyBillWave,
-    //   class: "#22c55e",
+  // {
+  //   icon: faUsers,
+  //   class: "#3b82f6",
+  //   name: "Employees",
+  // },
+  // {
+  //   icon: faMoneyBillWave,
+  //   class: "#22c55e",
 
-    //   name: "Payroll",
-    // },
-    // {
-    //   icon: faMoneyCheckAlt,
-    //   class: "#f97316",
+  //   name: "Payroll",
+  // },
+  // {
+  //   icon: faMoneyCheckAlt,
+  //   class: "#f97316",
 
-    //   name: "Reimbursement",
-    // },
-    // {
-    //   icon: faBuilding,
-    //   class: "#8b5cf6",
+  //   name: "Reimbursement",
+  // },
+  // {
+  //   icon: faBuilding,
+  //   class: "#8b5cf6",
 
-    //   name: "Departments",
-    // },
-    // {
-    //   icon: faPercent,
-    //   class: "#ef4444",
+  //   name: "Departments",
+  // },
+  // {
+  //   icon: faPercent,
+  //   class: "#ef4444",
 
-    //   name: "Tax Slabs",
-    // },
-    {
-      icon: faFileInvoice,
-      class: "#06b6d4",
+  //   name: "Tax Slabs",
+  // },
+  {
+    icon: faFileInvoice,
+    class: "#06b6d4",
 
-      name: "Sales",
-    },
-    {
-      icon: faCalculator,
-      class: "#eab308",
+    name: "Sales",
+  },
+  {
+    icon: faCalculator,
+    class: "#eab308",
 
-      name: "Accounting",
-    },
-    // {
-    //   icon: faClock,
-    //   class: "#a855f7",
+    name: "Accounting",
+  },
+  // {
+  //   icon: faClock,
+  //   class: "#a855f7",
 
-    //   name: "Timesheet",
-    // },
-    {
-      icon: faTasks,
-      class: "#10b981",
+  //   name: "Timesheet",
+  // },
+  {
+    icon: faTasks,
+    class: "#10b981",
 
-      name: "Project",
-    },
-    // {
-    //   icon: faBoxes,
-    //   class: "#f43f5e",
+    name: "Project",
+  },
+  // {
+  //   icon: faBoxes,
+  //   class: "#f43f5e",
 
-    //   name: "Inventory",
-    // },
-    {
-      icon: faShoppingCart,
-      class: "#f59e0b",
+  //   name: "Inventory",
+  // },
+  {
+    icon: faShoppingCart,
+    class: "#f59e0b",
 
-      name: "Purshase",
-    },
+    name: "Purshase",
+  },
 
-    // {
-    //   icon: faFolder,
-    //   class: "#60a5fa",
+  // {
+  //   icon: faFolder,
+  //   class: "#60a5fa",
 
-    //   name: "Documents",
-    // },
-    // {
-    //   icon: faCalendarCheck,
-    //   class: "#14b8a6",
+  //   name: "Documents",
+  // },
+  // {
+  //   icon: faCalendarCheck,
+  //   class: "#14b8a6",
 
-    //   name: "Attendance",
-    // },
-    // {
-    //   icon: faFileInvoiceDollar,
-    //   class: "#fb923c",
+  //   name: "Attendance",
+  // },
+  // {
+  //   icon: faFileInvoiceDollar,
+  //   class: "#fb923c",
 
-    //   name: "Expenses",
-    // },
-    // {
-    //   icon: faCheckCircle,
-    //   class: "#84cc16",
+  //   name: "Expenses",
+  // },
+  // {
+  //   icon: faCheckCircle,
+  //   class: "#84cc16",
 
-    //   name: "Approval",
-    // },
-    // {
-    //   icon: faUserPlus,
-    //   class: "#ec4899",
+  //   name: "Approval",
+  // },
+  // {
+  //   icon: faUserPlus,
+  //   class: "#ec4899",
 
-    //   name: "Recruitment",
-    // },
-    // {
-    //   icon: faHandHoldingUsd,
-    //   class: "#78350f",
+  //   name: "Recruitment",
+  // },
+  // {
+  //   icon: faHandHoldingUsd,
+  //   class: "#78350f",
 
-    //   name: "Settlement",
-    // },
-    // {
-    //   icon: faSearch,
-    //   class: "#4b5563",
+  //   name: "Settlement",
+  // },
+  // {
+  //   icon: faSearch,
+  //   class: "#4b5563",
 
-    //   name: "Audit",
-    // },
-    // {
-    //   icon: faFileAlt,
-    //   class: "#6d28d9",
+  //   name: "Audit",
+  // },
+  // {
+  //   icon: faFileAlt,
+  //   class: "#6d28d9",
 
-    //   name: "Tax Filing",
-    // },
-    // {
-    //   icon: faBook,
-    //   class: "#9333ea",
+  //   name: "Tax Filing",
+  // },
+  // {
+  //   icon: faBook,
+  //   class: "#9333ea",
 
-    //   name: "Knowledge",
-    // },
-    // {
-    //   icon: faCalculator,
-    //   class: "#f59e0b",
+  //   name: "Knowledge",
+  // },
+  // {
+  //   icon: faCalculator,
+  //   class: "#f59e0b",
 
-    //   name: "Bookkepping",
-    // },
-    // {
-    //   icon: faTruck,
-    //   class: "#334155",
-    //   name: "Vendors",
-    // },
-    // {
-    //   icon: faCalendarAlt,
-    //   class: "#f472b6",
-    //   name: "Calendar",
-    // },
-    // {
-    //   icon: faAddressBook,
-    //   class: "#1d4ed8",
-    //   name: "Contacts",
-    // },
-  ];
+  //   name: "Bookkepping",
+  // },
+  // {
+  //   icon: faTruck,
+  //   class: "#334155",
+  //   name: "Vendors",
+  // },
+  // {
+  //   icon: faCalendarAlt,
+  //   class: "#f472b6",
+  //   name: "Calendar",
+  // },
+  // {
+  //   icon: faAddressBook,
+  //   class: "#1d4ed8",
+  //   name: "Contacts",
+  // },
+];
 
 const Page = async () => {
-
+  const SuperAdminUser = await getUser();
+  
+  const { name } = SuperAdminUser || {};
 
   return (
     <div className=" w-full bg-gray-200">
-      <div className="flex  justify-center items-center mt-18 font-semibold text-3xl">
-        <h1>Greetings, Super Admin!</h1>
+      <div className="flex capitalize justify-center items-center mt-18 font-semibold text-3xl">
+        <h1>Greetings, {name}!</h1>
       </div>
       {/* Grid Section */}
 
