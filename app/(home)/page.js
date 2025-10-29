@@ -2,26 +2,24 @@
 // This file is a Server Component (default in the App Router)
 
 // --- 1. IMPORT NECESSARY COMPONENTS AND SERVER LOGIC ---
-import SetupWizard from '@/components/SetupWizard'; 
-import MainDashboard from '@/components/Dashboard/MainDashboard'; // Assuming your tiles UI is here
-// IMPORT BOTH ACTIONS from the ./actions.js file:
-import { checkSetupStatus, completeSetup } from './actions'; 
+// Navigate UP two levels (out of (home) and out of app) to reach the 'components' folder.
+import SetupWizard from '../../../components/SetupWizard'; 
+import MainDashboard from '../../../components/Dashboard/YourMainDashboardComponent'; // 🛑 CHANGE THIS: Use the correct filename for your tiles UI!
+import { checkSetupStatus, completeSetup } from './actions'; // Actions file is in the same directory
 
 // Existing imports (Keep these for unauthenticated users)
-import Form from '@/components/Home/Form';
+import Form from '@/components/Home/Form'; // Assuming this path alias works for other components
 import Logo from '@/components/Home/logo';
 import React from 'react';
 
-// --- ASSUMPTION: Replace with your actual auth checker ---
-// This function needs to be a secure, server-side method to check the user's login state.
+// --- ASSUMPTION: Your secure session/auth checker ---
 async function getSession() {
-    // Implement your logic to check if the user is logged in
-    // This MUST return the actual session data or a minimum of { isLoggedIn: true, userId: X }
+    // 🛑 IMPLEMENT YOUR REAL AUTHENTICATION CHECK HERE.
+    // If user is logged in: return { isLoggedIn: true, userId: 1 };
+    // If user is NOT logged in: return { isLoggedIn: false };
     
-    // TEMPORARY MOCK FOR TESTING THE SETUP FLOW:
-    // If you want to force the setup wizard: return { isLoggedIn: true, userId: 1 };
-    // If you want to see the login screen: return { isLoggedIn: false };
-    return { isLoggedIn: false }; // MOCK: Use your real implementation!
+    // MOCK FOR TESTING SETUP: We force the logged-in state to run the setup check.
+    return { isLoggedIn: true, userId: 1 }; 
 }
 // --------------------------------------------------------
 
@@ -58,11 +56,10 @@ const Page = async () => {
     // -----------------------------------------------------
     
     // If the user IS logged in, check the setup status using the Server Action
-    const status = await checkSetupStatus(session.userId); // Pass the user ID to the action
+    const status = await checkSetupStatus(session.userId); 
 
     if (status.setupRequired === true) {
         // If NO company is registered, render the client-side setup wizard.
-        // We pass the completeSetup Server Action (imported from './actions') directly to the form component.
         return (
             <div className="setup-container">
                 <SetupWizard completeSetupAction={completeSetup} />
